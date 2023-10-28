@@ -10,19 +10,19 @@ package Model;
  * @author Frederico
  */
 public class Item {
-    // Propriedades da classe
+    // Propriedades
     private int idItem;
     private String descricao;
     private float valorUnitario;
 
-    //Construtor
+    //Construtores
     public Item(int iditem, String descricao, float valorunitario) {
         this.idItem = iditem;
         this.descricao = descricao;
         this.valorUnitario = valorunitario;
     }
     
-    //metodos publicos das propriedades
+    //metodos publicos
     public String getDescricao() {
         return descricao;
     }

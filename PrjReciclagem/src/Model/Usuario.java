@@ -9,17 +9,17 @@ package Model;
  *
  * @author Frederico
  */
-public class Usuario {
+abstract public class Usuario {
     
     //Propriedades
-    private int idUsuario;
-    private String nome;
-    private String Sobrenome;
-    private String login;
-    private String senha;
-    private boolean administrador;
+    protected int idUsuario;
+    protected String nome;
+    protected String Sobrenome;
+    protected String login;
+    protected String senha;
+    protected boolean administrador;
     
-    //Construtor
+    //Construtorer
     public Usuario(int idUsuario, String nome, String Sobrenome, String login, String senha, boolean administrador) {
         this.idUsuario = idUsuario;
         this.nome = nome;
@@ -28,6 +28,12 @@ public class Usuario {
         this.senha = senha;
         this.administrador = administrador;
     }
+
+    public Usuario(int idUsuario, String nome) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+    }
+    
         
     //Metodos Publicos
     public String getNome() {
