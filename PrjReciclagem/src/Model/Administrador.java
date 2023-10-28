@@ -17,9 +17,9 @@ public class Administrador extends Usuario {
     //Construtores
     public Administrador(int idUsuario, String nome, String Sobrenome, String login, String senha, boolean administrador, String email) {
         super(idUsuario, nome, Sobrenome, login, senha, administrador);
-        this.email = email;
-    }
-
+        this.email = email ;
+    } 
+ 
     public Administrador(int idUsuario, String nome) {
         super(idUsuario, nome);
     }

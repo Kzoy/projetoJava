@@ -5,17 +5,23 @@
  */
 package View;
 
+import Controller.LoginController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Frederico
  */
 public class frmLogin extends javax.swing.JFrame {
+    //Propriedades
+    private final LoginController controller;
 
     /**
      * Creates new form frmLogin
      */
     public frmLogin() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -40,6 +46,11 @@ public class frmLogin extends javax.swing.JFrame {
         lblNomeTela.setPreferredSize(new java.awt.Dimension(59, 23));
 
         btnLogin.setText("Logar");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         txtUsuario.setMinimumSize(new java.awt.Dimension(45, 20));
 
@@ -76,6 +87,10 @@ public class frmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        this.controller.tarefaExecutada();
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,4 +133,8 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }
