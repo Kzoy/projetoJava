@@ -43,6 +43,4 @@ Tabela Tipo Campo
         Criar um campo texto na tela para inserção do numero do endereço = txtNumEndereco
         Criar uma label na tela para especificar o campo email = lblEmail
         Criar uma nova tela para cadastrar produto = frmCadastroProduto
-        
-
 */

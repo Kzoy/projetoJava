@@ -54,6 +54,11 @@ public class frmLogin extends javax.swing.JFrame {
         });
 
         txtUsuario.setMinimumSize(new java.awt.Dimension(45, 20));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
 
         txtSenha.setMinimumSize(new java.awt.Dimension(45, 20));
 
@@ -92,6 +97,10 @@ public class frmLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         this.controller.tarefaExecutada();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
