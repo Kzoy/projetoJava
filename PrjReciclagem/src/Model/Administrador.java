@@ -20,8 +20,8 @@ public class Administrador extends Usuario {
         this.email = email ;
     } 
  
-    public Administrador(int idUsuario, String nome) {
-        super(idUsuario, nome);
+    public Administrador(int idUsuario, String nome, String senha) {
+        super(idUsuario, nome, senha);
     }
     
 

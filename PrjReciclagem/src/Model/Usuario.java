@@ -29,9 +29,10 @@ abstract public class Usuario {
         this.administrador = administrador;
     }
 
-    public Usuario(int idUsuario, String nome) {
+    public Usuario(int idUsuario, String nome, String senha) {
         this.idUsuario = idUsuario;
         this.nome = nome;
+        this.senha = senha;
     }
     
         

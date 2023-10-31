@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Login;
+import Model.Usuario;
 import View.frmLogin;
 
 /**
@@ -25,6 +27,15 @@ public class LoginController {
     public void logar(){
         try
         {
+            //Obter Usuario da view
+            String nome = view.getTxtUsuario().getText();
+            String senha = view.getTxtSenha().getText();
+            
+            Login modelo = new Login (0, nome, senha);
+            //validar usuario no banco
+            //analisar usuario e senha da tela com o do banco
+            //// se sim abrir tela menu
+            //// se não mensagem de login incorreto e manter na tela
             
             tarefaExecutada();
         }

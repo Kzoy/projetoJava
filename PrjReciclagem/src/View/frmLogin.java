@@ -7,6 +7,7 @@ package View;
 
 import Controller.LoginController;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -137,4 +138,22 @@ public class frmLogin extends javax.swing.JFrame {
     public void exibeMensagem(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem);
     }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
+
+    public JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+    
+    
 }
