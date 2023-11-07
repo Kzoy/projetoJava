@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Controller.Helper.LoginHelper;
 import Model.Login;
 import Model.Usuario;
 import View.frmLogin;
@@ -16,11 +17,12 @@ import View.frmLogin;
 public class LoginController {
     //Propriedades
     private final frmLogin view;
+    private LoginHelper helper;
 
     //Construtores
     public LoginController(frmLogin view) {
         this.view = view;
-        
+        this.helper = new LoginHelper(view);
     }
     
     //Regras de Negocio
@@ -28,10 +30,9 @@ public class LoginController {
         try
         {
             //Obter Usuario da view
-            String nome = view.getTxtUsuario().getText();
-            String senha = view.getTxtSenha().getText();
+            Login usuario = helper.obterModelo();
             
-            Login modelo = new Login (0, nome, senha);
+            
             //validar usuario no banco
             //analisar usuario e senha da tela com o do banco
             //// se sim abrir tela menu

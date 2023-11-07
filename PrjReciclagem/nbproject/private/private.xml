@@ -4,17 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmRelatorio.java</file>
-            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Controller/LoginController.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Movimento.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Coletor.java</file>
-            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Usuario.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmLogin.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Administrador.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Item.java</file>
-            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmMenuPrincipal.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmCadastro.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmMovimento.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Usuario.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmMenuPrincipal.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Main.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Login.java</file>
         </group>
     </open-files>
 </project-private>

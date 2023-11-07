@@ -41,6 +41,16 @@ public class Administrador extends Usuario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+    
     
 }
 
