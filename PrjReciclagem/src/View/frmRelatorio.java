@@ -161,7 +161,7 @@ public class frmRelatorio extends javax.swing.JFrame {
             }
         });
     }
-
+//Kleitos
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnLimpar;
