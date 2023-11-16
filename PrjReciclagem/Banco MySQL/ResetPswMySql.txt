@@ -1,1 +1,1 @@
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'Pass123456';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '!QAZ2wsx#EDC';
