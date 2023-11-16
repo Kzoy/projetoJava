@@ -22,7 +22,7 @@ public class Banco {
             Connection conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/prjreciclagem?serverTimezone=UTC", //Conexao
                         "root", //Usuario
-                        "123456"); //senha
+                        "!QAZ2wsx#EDC"); //senha
             return conn;
         } 
         catch (Exception e) {
