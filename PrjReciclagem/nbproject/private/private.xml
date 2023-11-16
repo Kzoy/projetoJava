@@ -11,10 +11,16 @@
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Item.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmCadastro.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmMovimento.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/Banco.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/MovimentoDAO.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/LoginDAO.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Usuario.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/ColetorDAO.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/View/frmMenuPrincipal.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/AdministradorDAO.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Main.java</file>
+            <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/DAO/ItemDAO.java</file>
             <file>file:/C:/Users/Frederico/Documents/NetBeansProjects/projetoJava/PrjReciclagem/src/Model/Login.java</file>
         </group>
     </open-files>

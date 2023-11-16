@@ -1,4 +1,5 @@
 
+import Model.DAO.Banco;
 import Model.Item;
 import Model.Usuario;
 
@@ -14,12 +15,8 @@ import Model.Usuario;
 public class Main {
     
     public static void main(String[] args) {
-        
-        Item item = new Item(1, "Item Teste", 10);
-        
-        
-        System.out.println();
-                
+        Banco c = new Banco();
+        c.getConexao();
     }
     
 }
