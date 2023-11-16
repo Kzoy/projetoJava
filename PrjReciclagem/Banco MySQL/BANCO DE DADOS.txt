@@ -13,7 +13,7 @@ Create Table Tab_Usuario
 	(pk_int_IdUsuario int not null unique auto_increment,
      str_Nome Varchar(30),
      str_Sobrenome Varchar(30),
-     str_login Varchar(15),
+     str_login Varchar(15) unique,
      str_senha Varchar(30),
      str_telefone Varchar(30),
      str_endereco Varchar(100),

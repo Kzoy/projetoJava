@@ -6,9 +6,10 @@
 package Controller;
 
 import Controller.Helper.LoginHelper;
+import Model.DAO.LoginDAO;
 import Model.Login;
-import Model.Usuario;
 import View.frmLogin;
+import View.frmMenuPrincipal;
 
 /**
  *
@@ -18,6 +19,7 @@ public class LoginController {
     //Propriedades
     private final frmLogin view;
     private LoginHelper helper;
+    private LoginDAO conexaoLogin;
 
     //Construtores
     public LoginController(frmLogin view) {
@@ -26,23 +28,23 @@ public class LoginController {
     }
     
     //Regras de Negocio
-    public void logar(){
+    public void LogarSistema(){
         try
         {
             //Obter Usuario da view
             Login usuario = helper.obterModelo();
-            
-            
-            //validar usuario no banco
-            //analisar usuario e senha da tela com o do banco
-            //// se sim abrir tela menu
-            //// se não mensagem de login incorreto e manter na tela
-            
-            tarefaExecutada();
+            LoginDAO lgnDao = new LoginDAO();
+            if (lgnDao.LogarBanco(usuario) == null)
+            {
+                this.view.exibeMensagem("Usuario ou Senha invalido");
+                return;
+            }
+            frmMenuPrincipal menu = new frmMenuPrincipal();
+            menu.setVisible(true);
         }
         catch (Exception ex)
         {
-            this.view.exibeMensagem("Erro ao executar metodo logar");
+            this.view.exibeMensagem("Erro ao executar metodo LogarController: " + ex.getMessage());
         }
     }
     

@@ -36,7 +36,7 @@ public class LoginHelper {
         view.getTxtSenha().setText(senha);
     }
     
-    public void limparTela(){
+    public void limparDados(){
         view.getTxtUsuario().setText("");
         view.getTxtSenha().setText("");
     }

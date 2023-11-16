@@ -2,6 +2,8 @@
 import Model.DAO.Banco;
 import Model.Item;
 import Model.Usuario;
+import View.frmLogin;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +18,12 @@ public class Main {
     
     public static void main(String[] args) {
         Banco c = new Banco();
-        c.getConexao();
+        if (c.getConexao() == null)
+        {
+            JOptionPane.showMessageDialog(null, "Erro de conexão com o banco. VERIFIQUE!");
+            return;
+        }
+        new frmLogin().setVisible(true);
     }
     
 }

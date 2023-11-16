@@ -37,10 +37,6 @@ public class Coletor extends Usuario {
         this.setor = setor;
     }
 
-    public Coletor(int idUsuario, String nome, String senha, String setor) {
-        super(idUsuario, nome, senha);
-        this.setor = setor;
-    }
     
     //Metodos Publicos
     public String getTelefone() {

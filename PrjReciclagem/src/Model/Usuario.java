@@ -24,6 +24,9 @@ abstract public class Usuario {
     
     //Construtorer
     
+    public Usuario() {
+    }
+
     public Usuario(int idUsuario, String nome, String Sobrenome, String login, String senha, String email, String telefone, boolean administrador) {
         this.idUsuario = idUsuario;
         this.nome = nome;
@@ -35,9 +38,9 @@ abstract public class Usuario {
         this.administrador = administrador;
     }
 
-    public Usuario(int idUsuario, String nome, String senha) {
+    public Usuario(int idUsuario, String login, String senha) {
         this.idUsuario = idUsuario;
-        this.nome = nome;
+        this.login = login;
         this.senha = senha;
     }
     
@@ -81,6 +84,30 @@ abstract public class Usuario {
 
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     

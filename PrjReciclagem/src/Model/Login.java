@@ -11,8 +11,12 @@ package Model;
  */
 public class Login extends Usuario {
 
-    public Login(int idUsuario, String nome, String senha) {
-        super(idUsuario, nome, senha);
+    public Login() {
+    }
+
+    
+    public Login(int idUsuario, String login, String senha) {
+        super(idUsuario, login, senha);
     }
     
 }

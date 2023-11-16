@@ -6,6 +6,7 @@
 package View;
 
 import Controller.LoginController;
+import Model.Login;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -95,7 +96,7 @@ public class frmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        this.controller.tarefaExecutada();
+       controller.LogarSistema();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
