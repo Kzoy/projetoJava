@@ -33,6 +33,14 @@ public class Administrador extends Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public String getEmailEmergencial() {
+        return emailEmergencial;
+    }
+
+    public void setEmailEmergencial(String emailEmergencial) {
+        this.emailEmergencial = emailEmergencial;
+    }
 
     public String getTelefone() {
         return telefone;
