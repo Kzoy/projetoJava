@@ -11,14 +11,14 @@ package Model;
  */
 public class Administrador extends Usuario {
     //Propriedades
-    private String email;
-    private String telefone;
+    private String emailEmergencial;
     
     //Construtores
-    public Administrador(int idUsuario, String nome, String Sobrenome, String login, String senha, boolean administrador, String email) {
-        super(idUsuario, nome, Sobrenome, login, senha, administrador);
-        this.email = email ;
-    } 
+
+    public Administrador(String emailEmergencial, int idUsuario, String nome, String Sobrenome, String login, String senha, String email, String telefone, boolean administrador) {
+        super(idUsuario, nome, Sobrenome, login, senha, email, telefone, administrador);
+        this.emailEmergencial = emailEmergencial;
+    }
  
     public Administrador(int idUsuario, String nome, String senha) {
         super(idUsuario, nome, senha);

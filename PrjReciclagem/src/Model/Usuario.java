@@ -17,15 +17,21 @@ abstract public class Usuario {
     protected String Sobrenome;
     protected String login;
     protected String senha;
+    protected String email;
+    protected String telefone;    
     protected boolean administrador;
     
+    
     //Construtorer
-    public Usuario(int idUsuario, String nome, String Sobrenome, String login, String senha, boolean administrador) {
+    
+    public Usuario(int idUsuario, String nome, String Sobrenome, String login, String senha, String email, String telefone, boolean administrador) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.Sobrenome = Sobrenome;
         this.login = login;
         this.senha = senha;
+        this.email = email;
+        this.telefone = telefone;
         this.administrador = administrador;
     }
 

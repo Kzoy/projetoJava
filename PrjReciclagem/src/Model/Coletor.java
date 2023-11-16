@@ -17,18 +17,15 @@ import java.util.logging.Logger;
  */
 public class Coletor extends Usuario {
     //Propriedades
-    private String telefone;
     private String endereco;
-    private String email;
     private Date dataContrato;
     private String setor;
 
     //Construtores
-    public Coletor(int idUsuario, String nome, String Sobrenome, String login, String senha, boolean administrador, String telefone, String endereco, String email, String dataContrato, String setor) {
-        super(idUsuario, nome, Sobrenome, login, senha, administrador);
-        this.telefone = telefone;
+
+    public Coletor(String endereco, String dataContrato, String setor, int idUsuario, String nome, String Sobrenome, String login, String senha, String email, String telefone, boolean administrador) {
+        super(idUsuario, nome, Sobrenome, login, senha, email, telefone, administrador);
         this.endereco = endereco;
-        this.email = email;
         try 
         {
             this.dataContrato = new SimpleDateFormat("dd/MM/yy").parse(dataContrato);
