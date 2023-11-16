@@ -18,6 +18,7 @@ Create Table Tab_Usuario
      str_telefone Varchar(30),
      str_endereco Varchar(100),
      str_email Varchar(30),
+     str_emailEmergencial Varchar(30),
      dte_dataContrato datetime,
      str_setor Varchar(30),
      bln_administrador Boolean,
