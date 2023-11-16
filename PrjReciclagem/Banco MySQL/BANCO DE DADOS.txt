@@ -1,0 +1,57 @@
+/*
+drop table tab_movimento;
+drop table Tab_Item;
+drop table Tab_Usuario;
+
+Create Database PrjReciclagem;
+*/
+
+
+use PrjReciclagem;
+
+Create Table Tab_Usuario
+	(pk_int_IdUsuario int not null unique auto_increment,
+     str_Nome Varchar(30),
+     str_Sobrenome Varchar(30),
+     str_login Varchar(15),
+     str_senha Varchar(30),
+     str_telefone Varchar(30),
+     str_endereco Varchar(100),
+     str_email Varchar(30),
+     dte_dataContrato datetime,
+     str_setor Varchar(30),
+     bln_administrador Boolean,
+     CONSTRAINT Tab_Usuario_pk_int_IdUsuario PRIMARY KEY (pk_int_IdUsuario));
+
+
+Create Table Tab_Item
+    (pk_int_IdItem int not null unique auto_increment,
+     str_Descricao Varchar(30),
+     flt_valorUnitario float, 
+     str_Unidade Varchar(30),
+     CONSTRAINT Tab_Item_pk_int_IdItem PRIMARY KEY (pk_int_IdItem));
+
+Create Table Tab_Movimento
+    (pk_int_IdMovimento int not null unique auto_increment,
+     fk_int_IdColetor int,
+     fk_int_IdItem int,
+     flt_Quantidade float,
+     dte_DataMovimento datetime,
+     str_Observacao Varchar(100),
+     CONSTRAINT Tab_Movimento_pk_int_IdMovimento PRIMARY KEY (pk_int_IdMovimento),
+     FOREIGN KEY (fk_int_IdColetor) REFERENCES Tab_Usuario(pk_int_IdUsuario),
+     FOREIGN KEY (fk_int_IdItem) REFERENCES Tab_Item(pk_int_IdItem));
+     
+
+
+insert into 
+	Tab_Usuario 
+		(str_Nome,str_Sobrenome,str_login,str_senha,str_telefone,str_endereco,str_email,dte_dataContrato,str_setor,bln_administrador)
+	values 
+		('Administrador', null, 'adm', '123', '00-0000-0000', 'rrrrrr', 'asd@fgh.com', null, null, 1);
+     
+insert into 
+	Tab_Item
+		(str_Descricao, flt_valorUnitario, str_Unidade)
+	values
+		('Item Teste', 9.99, 'un')
