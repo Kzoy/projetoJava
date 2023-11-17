@@ -30,13 +30,13 @@ public class MovimentoController {
     
     public void AdicionarItem()
     {
-        DefaultTableModel tabelaMovimento = (DefaultTableModel) view.getTblMovimento().getModel();
-        ItemDAO itemDao = new ItemDAO();
-        Item prd = itemDao.GetItem(view.getCmbItem().getSelectedIndex());
-        Object[] obj = new Object[]{
-            prd.getDescricao(),
-        };
-        tabelaMovimento.
+        //DefaultTableModel tabelaMovimento = (DefaultTableModel) view.getTblMovimento().getModel();
+        //ItemDAO itemDao = new ItemDAO();
+        //Item prd = itemDao.GetItem(view.getCmbItem().getSelectedIndex());
+        //Object[] obj = new Object[]{
+        //    prd.getDescricao(),
+        //};
+        //tabelaMovimento.
 
     }
     
