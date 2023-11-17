@@ -32,10 +32,9 @@ public class LoginDAO {
             stmt.setString(1, userLogin.getLogin());
             stmt.setString(2, userLogin.getSenha());
             ResultSet rs = stmt.executeQuery();
-            Login login = new Login();
             rs.first();
-            login.setIdUsuario(rs.getInt("pk_int_IdUsuario"));
-            return login;
+            userLogin.setIdUsuario(rs.getInt("pk_int_IdUsuario"));
+            return userLogin;
         }
  
         catch (Exception e) {

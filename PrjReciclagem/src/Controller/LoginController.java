@@ -34,7 +34,8 @@ public class LoginController {
             //Obter Usuario da view
             Login usuario = helper.obterModelo();
             LoginDAO lgnDao = new LoginDAO();
-            if (lgnDao.LogarBanco(usuario) == null)
+            usuario = lgnDao.LogarBanco(usuario); 
+            if (usuario == null)
             {
                 this.view.exibeMensagem("Usuario ou Senha invalido");
                 return;
