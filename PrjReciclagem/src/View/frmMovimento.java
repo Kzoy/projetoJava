@@ -5,17 +5,95 @@
  */
 package View;
 
+import Controller.MovimentoController;
+import Model.Coletor;
+import Model.DAO.ColetorDAO;
+import Model.DAO.ItemDAO;
+import Model.Item;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Frederico
  */
 public class frmMovimento extends javax.swing.JFrame {
 
+    private int idUsuarioMov;
+    private final MovimentoController controller;    
+    
+    private void FillCmbItem()
+    {
+        try 
+        {
+            ItemDAO itemDao = new ItemDAO();
+            List<Item> lstItem = itemDao.GetLstItemAll();
+        
+            lstItem.stream().forEach((i) -> {
+                cmbItem.addItem(i);
+        });            
+        } 
+        catch (Exception e) 
+        {
+            
+        }
+
+    }    
+    
+    private void FillUserName()
+    {
+        try 
+        {
+            ColetorDAO userDao = new ColetorDAO();
+            Coletor user = userDao.GetColetor(idUsuarioMov);
+        
+            lblNomeUsuario.setText(user.getNome());            
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("erro do metodo de tela FillUserName");
+        }
+
+    }
+    
+    private void FillDate()
+    {
+        try 
+        {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+        
+            lblDataAtual.setText(df.format(today));            
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("erro do metodo de tela FillDate");
+        }
+
+    }
+    
     /**
      * Creates new form frmMovimento
      */
     public frmMovimento() {
         initComponents();
+        controller = new MovimentoController(this);
+        FillCmbItem();
+        FillDate();
+    }
+    
+    public frmMovimento(int idUsuario) {
+        this();        
+        this.idUsuarioMov = idUsuario;
+        FillUserName();
+        
     }
 
     /**
@@ -27,21 +105,129 @@ public class frmMovimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblNomeUsuario = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
+        txtQuantidade = new javax.swing.JTextField();
+        cmbItem = new javax.swing.JComboBox();
+        btnAdicionarItem = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblMovimento = new javax.swing.JTable();
+        lblDataAtual = new javax.swing.JLabel();
+        btnRemoverTodosItem = new javax.swing.JButton();
+        btnRemoverItem = new javax.swing.JButton();
+        lblQuantidade = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblNomeUsuario.setText("jLabel1");
+
+        btnSalvar.setText("Salvar");
+
+        btnAdicionarItem.setText("Adicionar");
+        btnAdicionarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarItemActionPerformed(evt);
+            }
+        });
+
+        tblMovimento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Item", "Quantidade", "Valor Unitario", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblMovimento);
+
+        lblDataAtual.setText("jLabel1");
+
+        btnRemoverTodosItem.setText("Remover Todos");
+
+        btnRemoverItem.setText("Remover");
+
+        lblQuantidade.setText("Quantidade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(btnRemoverTodosItem)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnSalvar))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(68, 68, 68)
+                                        .addComponent(btnAdicionarItem)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(btnRemoverItem))
+                                    .addComponent(lblQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeUsuario)
+                    .addComponent(lblDataAtual))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblQuantidade)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarItem)
+                    .addComponent(btnRemoverItem))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar)
+                    .addComponent(btnRemoverTodosItem))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItemActionPerformed
+        // TODO add your handling code here:
+        controller.AdicionarItem();
+    }//GEN-LAST:event_btnAdicionarItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +265,52 @@ public class frmMovimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarItem;
+    private javax.swing.JButton btnRemoverItem;
+    private javax.swing.JButton btnRemoverTodosItem;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox cmbItem;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblDataAtual;
+    private javax.swing.JLabel lblNomeUsuario;
+    private javax.swing.JLabel lblQuantidade;
+    private javax.swing.JTable tblMovimento;
+    private javax.swing.JTextField txtQuantidade;
     // End of variables declaration//GEN-END:variables
+
+    public JComboBox getCmbItem() {
+        return cmbItem;
+    }
+
+    public void setCmbItem(JComboBox cmbItem) {
+        this.cmbItem = cmbItem;
+    }
+
+    public JTable getTblMovimento() {
+        return tblMovimento;
+    }
+
+    public void setTblMovimento(JTable tblMovimento) {
+        this.tblMovimento = tblMovimento;
+    }
+
+    public JTextField getTxtQuantidade() {
+        return txtQuantidade;
+    }
+
+    public void setTxtQuantidade(JTextField txtQuantidade) {
+        this.txtQuantidade = txtQuantidade;
+    }
+
+    public int getIdUsuarioMov() {
+        return idUsuarioMov;
+    }
+
+    public void setIdUsuarioMov(int idUsuarioMov) {
+        this.idUsuarioMov = idUsuarioMov;
+    }
+
+    
+    
+
 }

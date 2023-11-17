@@ -59,6 +59,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         mnuRegistro.setText("Registros");
 
         itmnuRegMovimentacoes.setText("Movimentações");
+        itmnuRegMovimentacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmnuRegMovimentacoesActionPerformed(evt);
+            }
+        });
         mnuRegistro.add(itmnuRegMovimentacoes);
 
         mnuRegRelatorios.setText("Relatórios");
@@ -94,7 +99,14 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itmnuRegMovimentacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmnuRegMovimentacoesActionPerformed
+        // TODO add your handling code here:
+        frmMovimento movimento = new frmMovimento(idUsuarioLogin);
+        movimento.setVisible(true);
+    }//GEN-LAST:event_itmnuRegMovimentacoesActionPerformed
 
     /**
      * @param args the command line arguments

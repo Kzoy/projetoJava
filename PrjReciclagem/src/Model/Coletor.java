@@ -23,13 +23,16 @@ public class Coletor extends Usuario {
 
     //Construtores
 
+    public Coletor() {
+    }
+
     public Coletor(String endereco, String dataContrato, String setor, int idUsuario, String nome, String Sobrenome, String login, String senha, String email, String telefone, boolean administrador) {
         super(idUsuario, nome, Sobrenome, login, senha, email, telefone, administrador);
         this.endereco = endereco;
         try 
         {
             this.dataContrato = new SimpleDateFormat("dd/MM/yy").parse(dataContrato);
-        } 
+        }
         catch (ParseException ex) 
         {
             Logger.getLogger(Coletor.class.getName()).log(Level.SEVERE, null, ex);

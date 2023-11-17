@@ -18,6 +18,9 @@ public class Item {
     private String unidade;
 
     //Construtores
+    public Item() {
+    }
+
     public Item(int iditem, String descricao, float valorunitario, String unidade) {
         this.idItem = iditem;
         this.descricao = descricao;
@@ -56,6 +59,10 @@ public class Item {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public String toString(){
+        return this.descricao;
     }
 
 }

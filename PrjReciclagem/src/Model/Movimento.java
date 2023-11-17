@@ -18,22 +18,25 @@ import java.util.logging.Logger;
 public class Movimento {
     //Propriedades
     private int idMovimento;
-    private Coletor coletor;
-    private Item item;
+    private int idColetor;
+    private int idItem;
     private float quantidade;
     private Date dataMovimento;
     private String Observacao;
 
     //Construtores
-    public Movimento(int idMovimento, Coletor coletor, Item item, float quantidade, String dataMovimento) {
+    public Movimento() {
+    }
+
+    public Movimento(int idMovimento, int coletor, int item, float quantidade, String dataMovimento) {
         this.idMovimento = idMovimento;
-        this.coletor = coletor;
-        this.item = item;
+        this.idColetor = coletor;
+        this.idItem = item;
         this.quantidade = quantidade;
         try 
         {
             this.dataMovimento = new SimpleDateFormat("dd/MM/yy HH:mm").parse(dataMovimento);
-        } 
+        }
         catch (ParseException ex) 
         {
             Logger.getLogger(Movimento.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,20 +52,20 @@ public class Movimento {
         this.idMovimento = idMovimento;
     }
 
-    public Coletor getColetor() {
-        return coletor;
+    public int getIdColetor() {
+        return idColetor;
     }
 
-    public void setColetor(Coletor coletor) {
-        this.coletor = coletor;
+    public void setIdColetor(int idColetor) {
+        this.idColetor = idColetor;
     }
 
-    public Item getItem() {
-        return item;
+    public int getIdItem() {
+        return idItem;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setIdItem(int idItem) {
+        this.idItem = idItem;
     }
 
     public float getQuantidade() {
