@@ -39,8 +39,9 @@ public class LoginController {
                 this.view.exibeMensagem("Usuario ou Senha invalido");
                 return;
             }
-            frmMenuPrincipal menu = new frmMenuPrincipal();
+            frmMenuPrincipal menu = new frmMenuPrincipal(usuario.getIdUsuario());
             menu.setVisible(true);
+            this.view.setVisible(false);
         }
         catch (Exception ex)
         {

@@ -11,12 +11,17 @@ package View;
  */
 public class frmMenuPrincipal extends javax.swing.JFrame {
 
+    private int idUsuarioLogin;
     /**
      * Creates new form frmMenuPrincipal
      */
     public frmMenuPrincipal() {
         initComponents();
     }
+    public frmMenuPrincipal(int idUsuario) {
+        this();
+        this.idUsuarioLogin = idUsuario;
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
