@@ -4,16 +4,17 @@
  */
 package View;
 
+import Model.DAO.ItemDAO;
+import Model.Item;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
- * @author HP
+ * @author Pedro
  */
 public class frmCadastroProduto extends javax.swing.JFrame {
     
@@ -23,7 +24,6 @@ public class frmCadastroProduto extends javax.swing.JFrame {
     private JTextField txtPreco;
     private JTextField txtDescricao;
     private JButton btnCadastrar;
-    private JButton btnFiltrar;
     
     private ProdutoController produtoController;
     private DefaultListModel<String> listaProdutosModel;
@@ -57,22 +57,18 @@ public class frmCadastroProduto extends javax.swing.JFrame {
         txtDescricao = new JTextField(20);
 
         btnCadastrar = new JButton("Cadastrar");
-        btnFiltrar = new JButton("Filtrar");
 
         // Adicionando os ouvintes de eventos aos botões
         btnCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cadastrarProduto();
+                float preco = Float.parseFloat(txtPreco.getText());
+                Item produto = new Item(0, txtDescricao.getText(), preco, txtUnidade.getText());
+                ItemDAO itemBanco = new ItemDAO();
+                itemBanco.InserirItem(produto);
             }
         });
 
-        btnFiltrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                filtrarProdutos();
-            }
-        });
 
         // Configurando a lista de produtos
         listaProdutos = new JList<>(listaProdutosModel);
@@ -93,7 +89,6 @@ public class frmCadastroProduto extends javax.swing.JFrame {
         formularioPanel.add(lblDescricao);
         formularioPanel.add(txtDescricao);
         formularioPanel.add(btnCadastrar);
-        formularioPanel.add(btnFiltrar);
 
         add(formularioPanel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
@@ -102,121 +97,7 @@ public class frmCadastroProduto extends javax.swing.JFrame {
         setVisible(true);
     }
     
-    private void cadastrarProduto() {
-        String idProdutoStr = txtIdProduto.getText();
-        String nome = txtNome.getText();
-        String unidade = txtUnidade.getText();
-        String precoStr = txtPreco.getText();
-        String descricao = txtDescricao.getText();
-
-        if (idProdutoStr.isEmpty() || nome.isEmpty() || unidade.isEmpty() || precoStr.isEmpty() || descricao.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        try {
-            int idProduto = Integer.parseInt(idProdutoStr);
-            double preco = Double.parseDouble(precoStr);
-
-            // Criando o produto
-            Produto produto = new Produto(idProduto, nome, unidade, preco, descricao);
-
-            // Adicionando o produto através do controlador
-            produtoController.adicionarProduto(produto);
-
-            // Adicionando o produto à lista de produtos na UI
-            listaProdutosModel.addElement("ID: " + produto.getIdProduto() +
-                    " | Nome: " + produto.getNome() +
-                    " | Unidade: " + produto.getUnidade() +
-                    " | Preço: " + produto.getPreco() +
-                    " | Descrição: " + produto.getDescricao());
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Digite valores numéricos válidos para ID e preço!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-
-        // Limpar os campos após o cadastro
-        txtIdProduto.setText("");
-        txtNome.setText("");
-        txtUnidade.setText("");
-        txtPreco.setText("");
-        txtDescricao.setText("");
-    }
-
-    private void filtrarProdutos() {
-        // Criar um array com as opções de filtro
-        String[] opcoesFiltro = {"ID", "Nome", "Descrição", "Preço"};
-        // Mostrar a caixa de diálogo para escolher o filtro
-        String filtroSelecionado = (String) JOptionPane.showInputDialog(this,
-                "Escolha o campo para filtrar:",
-                "Filtrar Produtos",
-                JOptionPane.PLAIN_MESSAGE,
-                null,
-                opcoesFiltro,
-                opcoesFiltro[0]);
-
-        if (filtroSelecionado == null) {
-            return; // Cancelou a operação
-        }
-
-        // Obter o valor para o filtro
-        String valorFiltro = JOptionPane.showInputDialog(this, "Digite o valor para o filtro:");
-
-        if (valorFiltro == null || valorFiltro.isEmpty()) {
-            return; // Cancelou ou não forneceu um valor
-        }
-
-        try {
-            // Filtrar produtos com base no critério escolhido
-            List<Produto> produtosFiltrados;
-            switch (filtroSelecionado) {
-                case "ID":
-                    int idFiltro = Integer.parseInt(valorFiltro);
-                    produtosFiltrados = produtoController.getProdutos().stream()
-                            .filter(produto -> produto.getIdProduto() == idFiltro)
-                            .collect(Collectors.toList());
-                    break;
-                case "Nome":
-                    produtosFiltrados = produtoController.getProdutos().stream()
-                            .filter(produto -> produto.getNome().toLowerCase().contains(valorFiltro.toLowerCase()))
-                            .collect(Collectors.toList());
-                    break;
-                case "Descrição":
-                    produtosFiltrados = produtoController.getProdutos().stream()
-                            .filter(produto -> produto.getDescricao().toLowerCase().contains(valorFiltro.toLowerCase()))
-                            .collect(Collectors.toList());
-                    break;
-                case "Preço":
-                    double precoFiltro = Double.parseDouble(valorFiltro);
-                    produtosFiltrados = produtoController.getProdutos().stream()
-                            .filter(produto -> produto.getPreco() > precoFiltro)
-                            .collect(Collectors.toList());
-                    break;
-                default:
-                    produtosFiltrados = produtoController.getProdutos();
-            }
-
-            // Exibir a lista filtrada em uma nova janela de diálogo
-            exibirListaFiltrada(produtosFiltrados);
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Digite um valor numérico válido para o filtro de preço ou ID!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void exibirListaFiltrada(List<Produto> produtos) {
-        // Construir uma representação de string para os produtos filtrados
-        StringBuilder mensagem = new StringBuilder("Produtos Filtrados:\n");
-        for (Produto produto : produtos) {
-            mensagem.append("ID: ").append(produto.getIdProduto())
-                    .append(" | Nome: ").append(produto.getNome())
-                    .append(" | Unidade: ").append(produto.getUnidade())
-                    .append(" | Preço: ").append(produto.getPreco())
-                    .append(" | Descrição: ").append(produto.getDescricao())
-                    .append("\n");
-        }
-
-        // Exibir a lista filtrada em uma nova janela de diálogo
-        JOptionPane.showMessageDialog(this, mensagem.toString(), "Produtos Filtrados", JOptionPane.INFORMATION_MESSAGE);
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
