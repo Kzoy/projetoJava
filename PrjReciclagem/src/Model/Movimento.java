@@ -35,7 +35,7 @@ public class Movimento {
         this.quantidade = quantidade;
         try 
         {
-            this.dataMovimento = new SimpleDateFormat("dd/MM/yy HH:mm").parse(dataMovimento);
+            this.dataMovimento = new SimpleDateFormat("dd/MM/yy").parse(dataMovimento);
         }
         catch (ParseException ex) 
         {
@@ -91,7 +91,5 @@ public class Movimento {
     public void setObservacao(String Observacao) {
         this.Observacao = Observacao;
     }
-    
-    
-    
+
 }

@@ -62,7 +62,7 @@ public class Item {
     }
     
     public String toString(){
-        return this.descricao;
+        return this.idItem + ";" +  this.descricao;
     }
 
 }

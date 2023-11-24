@@ -5,9 +5,11 @@
  */
 package Controller.Helper;
 
-import Model.Login;
+
 import Model.Movimento;
 import View.frmMovimento;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -23,12 +25,28 @@ public class MovimentoHelper {
     }
     
     public Movimento obterModelo(){
-        int idColetor = view.getIdUsuarioMov();
-        int idItem = view.getCmbItem().getSelectedIndex();
-        float quantidade = Float.valueOf(view.getTxtQuantidade().getText());
-        Date dataMovimento = new Date();
-
-        Movimento modelo = new Movimento ();        
+        Movimento modelo = new Movimento(); 
+        float quantidade = 0;
+        try 
+        {
+            int idColetor = view.getIdUsuarioMov();
+            String selectedItem[] = view.getCmbItem().getSelectedItem().toString().split(";");
+            int idItem = Integer.parseInt(selectedItem[0]);
+            if (!("".equals(view.getTxtQuantidade().getText())))
+            {
+                quantidade = Float.valueOf(view.getTxtQuantidade().getText());
+            } 
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            String dataMovimento = df.format(new Date());
+            
+            modelo = new Movimento (0,idColetor,idItem,quantidade,dataMovimento);        
+        } 
+        catch (Exception e) 
+        {
+            this.view.exibeMensagem("Erro ao executar metodo GerarMovimento: " + e.getMessage());
+            
+        }
+        
         return modelo;
     }
     
@@ -36,5 +54,9 @@ public class MovimentoHelper {
         Movimento modelo = new Movimento ();        
         return modelo;
     }
+    
+    public void limparDados(){
+        view.getTxtQuantidade().setText("");
+    }    
     
 }

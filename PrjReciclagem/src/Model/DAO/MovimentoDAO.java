@@ -35,8 +35,8 @@ public class MovimentoDAO {
                 + "(fk_int_IdColetor, fk_int_IdItem, flt_Quantidade,"
                 + " dte_DataMovimento, str_Observacao) "
                 + "Values "
-                + "(?, ?, ?)"
-                + "(?, ?)"                
+                + "(?, ?, ?,"
+                + " ?, ?)"                
                 ;
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);

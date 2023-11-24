@@ -6,7 +6,6 @@
 package Model.DAO;
 
 import Model.Item;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -16,17 +15,15 @@ import java.util.List;
  *
  * @author Frederico
  */
-public class ItemDAO {
-    private Banco conexao;
-    private Connection conn;
+public class ItemDAO extends SqlDAO{
     
     //Construtores 
-
     public ItemDAO() {
         this.conexao = new Banco();
         this.conn = this.conexao.getConexao();
     }
     
+    @Override
     public void InserirItem(Item produto){
         String sql = "Insert into Tab_Item " 
                 + "(str_Descricao, str_Unidade, flt_valorUnitario) "
@@ -96,7 +93,7 @@ public class ItemDAO {
     }    
     
     public List<Item> GetLstItemAll(){
-        String sql = "Select * from Tab_Item";
+        String sql = "Select * from Tab_Item order by pk_int_IdItem";
         try 
         {
             PreparedStatement stmt = this.conn.prepareStatement(sql);

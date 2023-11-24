@@ -16,9 +16,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -229,6 +229,21 @@ public class frmMovimento extends javax.swing.JFrame {
         controller.AdicionarItem();
     }//GEN-LAST:event_btnAdicionarItemActionPerformed
 
+    private void btnRemoverItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+        controller.RemoverItem();
+    }                                              
+
+    private void btnRemoverTodosItemActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // TODO add your handling code here:
+        controller.RemoverTodosItens();
+    }                                                   
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        controller.GerarMovimento();
+    }  
+    
     /**
      * @param args the command line arguments
      */
@@ -278,6 +293,11 @@ public class frmMovimento extends javax.swing.JFrame {
     private javax.swing.JTextField txtQuantidade;
     // End of variables declaration//GEN-END:variables
 
+    
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+        
     public JComboBox getCmbItem() {
         return cmbItem;
     }
